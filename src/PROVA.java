@@ -7,16 +7,16 @@ public class PROVA {
 	public static void main(String[] args) {
 		//	int array[] = new int [100];
 		//	int array[] = new int [1000];
-		//	int array[] = new int [10000];
+		//	int array[] = new int [100000];
 			int array[] = new int [500000];
 		//	int array[] = new int [1000000];
-		// int array[] = new int [1000000];
+
 
 		int valorDoElemento = array.length - 1;
 		for (int i = 0; i < array.length; i++) {
-			 array[i] = (int) (Math.random() * 1000) + 1;
-			// array[i] = i; // este array serve para criar valores crescentes
-			// array[i] = valorDoElemento--; // esse array serve para gerar valores decrescentes
+			// array[i] = (int) (Math.random() * 1000) + 1;
+			// array[i] = i; //CRESCENTE
+			 array[i] = valorDoElemento--; //DECRESCENTE
 		}
 
 		Instant instantInicial = Instant.now();
@@ -28,13 +28,12 @@ public class PROVA {
 		// bubble(array);
 		// bubbleDecrescente(array);
 		// mergeSort(array, array, 0, array.length -1);
-		 mergeSortDecrescente(array, array, 0, array.length -1);
 		// quickSort(array, 0, array.length -1); // Um dos metodos mais rapidos de ordenação
-		// arraySort(array);
+		 arraySort(array);
 
 		Instant instantFinal = Instant.now();
 		Duration duracao = Duration.between(instantInicial, instantFinal);
-		imprime(array);
+		//imprime(array);
 		System.out.println("Executado em = " + duracao.toMillis() + "MS");
 
 	}
@@ -146,44 +145,6 @@ public class PROVA {
 		}
 	}
 
-	public static void mergeSortDecrescente(int[] vetor, int[] aux, int inicio, int fim) {
-		if(inicio<fim)
-		{
-			int meio = (inicio + fim) / 2;
-			mergeSort(vetor, aux, inicio, meio);
-			mergeSort(vetor, aux, meio+1, fim);
-			intercalarDecrescente(vetor, aux, inicio, meio, fim);
-		}
-	}
-		private static void intercalarDecrescente(int[] vetor, int[] aux, int inicio, int meio, int fim) {
-			for(int i = inicio; i <= fim; i++)
-			{
-				aux[i] = vetor[i];
-			}
-			int esq = inicio;
-			int dir = meio+1;
-
-			for(int i=inicio; i<=fim; i++)
-			{
-				if(esq > meio)
-				{
-					vetor[i] = aux[dir++];
-				} 
-				else if (dir > fim)
-				{
-					vetor[i] = aux[esq++];
-				}
-				else if(aux[esq] < aux[dir])
-				{
-					vetor[i] = aux[esq++];
-				}
-				else
-				{
-					vetor[i] = aux[dir++];
-				}
-			}
-		}
-
 	public static void mergeSort(int[] vetor, int[] aux, int inicio, int fim) {
 		if(inicio<fim)
 		{
@@ -229,7 +190,6 @@ public class PROVA {
 			  quickSort(vetor, q + 1 , termino);
 			}
 		  }
-	
 	public static void troca ( int[] vetor, int origem, int destino ) {
 		int aux = vetor[origem];
 		vetor[origem] = vetor[destino];
