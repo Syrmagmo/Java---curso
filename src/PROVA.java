@@ -7,16 +7,16 @@ public class PROVA {
 	public static void main(String[] args) {
 		//	int array[] = new int [100];
 		//	int array[] = new int [1000];
-		//	int array[] = new int [100000];
-			int array[] = new int [500000];
+			int array[] = new int [100000];
+		//	int array[] = new int [500000];
 		//	int array[] = new int [1000000];
 
 
 		int valorDoElemento = array.length - 1;
 		for (int i = 0; i < array.length; i++) {
-			// array[i] = (int) (Math.random() * 1000) + 1;
+			 array[i] = (int) (Math.random() * 1000) + 1;
 			// array[i] = i; //CRESCENTE
-			 array[i] = valorDoElemento--; //DECRESCENTE
+			// array[i] = valorDoElemento--; //DECRESCENTE
 		}
 
 		Instant instantInicial = Instant.now();
@@ -25,11 +25,11 @@ public class PROVA {
 		// selectionDecrescente(array);
 		// insertion(array);
 		// insertionDecrescente(array);
-		// bubble(array);
+		 bubble(array);
 		// bubbleDecrescente(array);
 		// mergeSort(array, array, 0, array.length -1);
 		// quickSort(array, 0, array.length -1); // Um dos metodos mais rapidos de ordenação
-		 arraySort(array);
+		// arraySort(array);
 
 		Instant instantFinal = Instant.now();
 		Duration duracao = Duration.between(instantInicial, instantFinal);
